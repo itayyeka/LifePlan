@@ -13,6 +13,7 @@ if true
         Map.Data.Expenses.Dates.Start.Units=6;
         Map.Data.Expenses.Dates.Duration.Value=7;
         Map.Data.Expenses.Dates.Duration.Units=8;
+        Map.Data.Expenses.Report=9;
     end
     %% Fetch values
     RowId=InitRowId;
@@ -48,6 +49,9 @@ if true
             %% Map.Data.Expenses.Dates.Duration.Units=8;
             CurExpense.Dates.Duration.Units=...
                 XlsData{RowId,Map.Data.Expenses.Dates.Duration.Units};
+            %% Map.Data.Expenses.Report=9;
+            CurExpense.Report=...
+                XlsData{RowId,Map.Data.Expenses.Report};
             %% Assign new expense
             Db.Data.Expenses{end+1}=CurExpense;
         end

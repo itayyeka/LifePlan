@@ -29,7 +29,7 @@ if strcmpi(DscStr,'Income')
     %% Check for special events
     StartDate=AUX.LpConvertTimeToMonths(Data.Dates.Start);
     Duration=AUX.LpConvertTimeToMonths(Data.Dates.Duration);
-    EndDate=StartDate+Duration;
+    EndDate=StartDate+Duration-1;
     %% Dynamics
     if ((Month>=StartDate) && (Month<=EndDate))
         Contributors= ...
@@ -97,10 +97,12 @@ elseif strcmpi(DscStr,'Loan')
             end
             %% Exiting
             Duration=AUX.LpConvertTimeToMonths(Data.Dates.Duration);
+            ExitDate=StartDate+AUX.LpConvertTimeToMonths(Data.Dates.Exit);
             EndDate=StartDate+Duration;
-            if ~isempty(EndDate)
+            if ~isempty(ExitDate)
                 %% Exiting before the planned time.
-                if Month == EndDate
+                % TODO : change excel input to add end date in addition to the duration to enable exiting the loan
+                if Month == ExitDate
                     Contributors= ...
                         AUX.LpUpdateContributors_ExitLoan( ...
                         Position,Contributors,Data);
@@ -112,7 +114,7 @@ elseif strcmpi(DscStr,'Loan')
             [Contributors,Position]= ...
                 AUX.LpUpdateContributors_LoanDynamics( ...
                 Position,Contributors,Data);
-        end
+        end        
     end
 elseif strcmpi(DscStr,'Expense')
     %% Check for special events

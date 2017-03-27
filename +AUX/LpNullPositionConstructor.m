@@ -50,6 +50,9 @@ if true
     NullPosition.Market.CurIndex=100; %[precent]
     NullPosition.Market.LastIndexPrecentChange=0; %[precent]
     NullPosition.Market.InterestCalcType=[];
+    %% Report
+    NullPosition.Report.Incomes=[];
+    NullPosition.Report.Expenses=[];
 end
 end
 

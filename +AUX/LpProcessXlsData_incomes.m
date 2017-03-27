@@ -21,6 +21,7 @@ if true
         Map.Data.Incomes.Raises.Frequency=14;
         Map.Data.Incomes.Raises.Date.Val=15;
         Map.Data.Incomes.Raises.Date.Units=16;
+        Map.Data.Incomes.Report=17;
     end
     %% Fetch values
     RowId=InitRowId;
@@ -62,6 +63,9 @@ if true
             %% Map.Data.Incomes.Tax.Units=10;
             CurIncome.Tax.Units=...
                 XlsData{RowId,Map.Data.Incomes.Tax.Units};
+            %% Map.Data.Incomes.Report=17;
+            CurIncome.Report=...
+                XlsData{RowId,Map.Data.Incomes.Report};
             %% Assign new income
             Db.Data.Incomes{end+1}=CurIncome;
         end
@@ -89,7 +93,7 @@ if true
             %% Map.Data.Incomes.Raises.Date.Units=16;
             CurRaise.Dates.Start.Units=...
                 XlsData{RowId,Map.Data.Incomes.Raises.Date.Units};
-            Db.Data.Incomes{end}.Raises{end+1}=CurRaise;
+            Db.Data.Incomes{end}.Raises{end+1}=CurRaise;            
         end
         RowId=RowId+1;
     end

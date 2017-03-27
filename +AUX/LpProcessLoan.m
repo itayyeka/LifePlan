@@ -49,15 +49,19 @@ if strcmpi(LoanCfg.Payback.Type,'Shpitzer')
         if strcmpi(Position.Market.InterestCalcType,'Nominal')
             MonthlyInterest=CurInterest/12;
         elseif strcmpi(Position.Market.InterestCalcType,'Adjusted')
-            MonthlyInterest=(1+CurInterest)^(1/12)-1;
+            MonthlyInterest=100*((1+CurInterest/100)^(1/12)-1);
         else
             error('User must configure a valid interest calculation type');
         end
+        % NOTE: In banks webite, the interest is nominal! not adjusted.
+        %              The real calculation need to be adjusted.
         %% Months left
         LoanDuration=...
             AUX.LpConvertTimeToMonths(LoanCfg.Dates.Start) ...
             + AUX.LpConvertTimeToMonths(LoanCfg.Dates.Duration) ...
-            - Position.CurDate.Val;
+            - Position.CurDate.Val ...
+            +1 ...
+            ;
         %% CurPayment
         R=MonthlyInterest/100;
         CurPayment= ...

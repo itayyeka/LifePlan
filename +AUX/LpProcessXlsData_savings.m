@@ -11,15 +11,19 @@ if true
         Map.Data.Savings.ManagmentFee.Value=4;
         Map.Data.Savings.ManagmentFee.Units=5;
         Map.Data.Savings.ManagmentFee.Frequency=6;
-        Map.Data.Savings.StandingOrder=7;
-        Map.Data.Savings.Dates.Start.Value=8;
-        Map.Data.Savings.Dates.Start.Units=9;
-        Map.Data.Savings.Dates.End.Value=10;
-        Map.Data.Savings.Dates.End.Units=11;
-        Map.Data.Savings.Interest.Value=12;
-        Map.Data.Savings.Interest.Units=13;
-        Map.Data.Savings.Interest.Frequency=14;
-        Map.Data.Savings.Interest.LinkedToIndex=15;
+        Map.Data.Savings.StandingOrder.Val=7;
+        Map.Data.Savings.StandingOrder.Frequency=8;
+        Map.Data.Savings.StandingOrder.Growth=9;
+        Map.Data.Savings.Dates.Start.Value=10;
+        Map.Data.Savings.Dates.Start.Units=11;
+        Map.Data.Savings.Dates.StopInsert.Value=12;
+        Map.Data.Savings.Dates.StopInsert.Units=13;
+        Map.Data.Savings.Dates.End.Value=14;
+        Map.Data.Savings.Dates.End.Units=15;
+        Map.Data.Savings.Interest.Value=16;
+        Map.Data.Savings.Interest.Units=17;
+        Map.Data.Savings.Interest.Frequency=18;
+        Map.Data.Savings.Interest.LinkedToIndex=19;
     end
     %% Fetch values
     RowId=InitRowId;
@@ -49,31 +53,43 @@ if true
             %% Map.Data.Savings.ManagmentFee.Frequency=6;
             CurSaving.ManagementFee.Frequency=...
                 XlsData{RowId,Map.Data.Savings.ManagmentFee.Frequency};
-            %% Map.Data.Savings.StandingOrder=7;
+            %% Map.Data.Savings.StandingOrder.Val=7;
             CurSaving.StandingOrder.Val=...
-                XlsData{RowId,Map.Data.Savings.StandingOrder};
-            %% Map.Data.Savings.Dates.Start.Value=8;
+                XlsData{RowId,Map.Data.Savings.StandingOrder.Val};
+            %% Map.Data.Savings.StandingOrder.Frequency=8;
+            CurSaving.StandingOrder.Frequency=...
+                XlsData{RowId,Map.Data.Savings.StandingOrder.Frequency};
+            %% Map.Data.Savings.StandingOrder.Growth=9;
+            CurSaving.StandingOrder.Growth=...
+                XlsData{RowId,Map.Data.Savings.StandingOrder.Growth};
+            %% Map.Data.Savings.Dates.Start.Value=10;
             CurSaving.Dates.Start.Val=...
                 XlsData{RowId,Map.Data.Savings.Dates.Start.Value};
-            %% Map.Data.Savings.Dates.Start.Units=9;
+            %% Map.Data.Savings.Dates.Start.Units=11;
             CurSaving.Dates.Start.Units=...
                 XlsData{RowId,Map.Data.Savings.Dates.Start.Units};
-            %% Map.Data.Savings.Dates.End.Value=10;
+            %% Map.Data.Savings.Dates.StopInsert.Value=12;
+            CurSaving.Dates.StopInsert.Val=...
+                XlsData{RowId,Map.Data.Savings.Dates.StopInsert.Value};
+            %% Map.Data.Savings.Dates.StopInsert.Units=13;
+            CurSaving.Dates.StopInsert.Units=...
+                XlsData{RowId,Map.Data.Savings.Dates.StopInsert.Units};
+            %% Map.Data.Savings.Dates.End.Value=14;
             CurSaving.Dates.End.Val=...
                 XlsData{RowId,Map.Data.Savings.Dates.End.Value};
-            %% Map.Data.Savings.Dates.End.Units=11;
+            %% Map.Data.Savings.Dates.End.Units=15;
             CurSaving.Dates.End.Units=...
                 XlsData{RowId,Map.Data.Savings.Dates.End.Units};
-            %% Map.Data.Savings.Interest.Value=12;
+            %% Map.Data.Savings.Interest.Value=16;
             CurSaving.Interest.Val=...
                 XlsData{RowId,Map.Data.Savings.Interest.Value};
-            %% Map.Data.Savings.Interest.Units=13;
+            %% Map.Data.Savings.Interest.Units=17;
             CurSaving.Interest.Units=...
                 XlsData{RowId,Map.Data.Savings.Interest.Units};
-            %% Map.Data.Savings.Interest.Frequency=14;
+            %% Map.Data.Savings.Interest.Frequency=18;
             CurSaving.Interest.Frequency=...
                 XlsData{RowId,Map.Data.Savings.Interest.Frequency};
-            %% Map.Data.Savings.Interest.LinkedToIndex=15;
+            %% Map.Data.Savings.Interest.LinkedToIndex=19;
             CurSaving.Interest.LinkToIndex=...
                 XlsData{RowId,Map.Data.Savings.Interest.LinkedToIndex};
             %% Assign new saving

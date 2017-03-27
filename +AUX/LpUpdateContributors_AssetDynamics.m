@@ -15,10 +15,12 @@ if ~exist('AssetCfg','var')
 end
 %% Body
 if true
-    %% Assets
+    %% Assets   
+    [~,Gentrification]=...
+        AUX.LpCalculateAssetValue(AssetCfg,Position);
     Contributors.Holdings.Assets=...
         Contributors.Holdings.Assets ...
-        +AUX.LpCalculateAssetValue(AssetCfg,Position);
+        +Gentrification;
     %% Yield (cash)
     CurYield=AUX.LpCalculateAssetYield(AssetCfg,Position);    
     Contributors.Income= ...

@@ -12,9 +12,12 @@ if true
         Map.Data.Loans.Dates.Start.Units=5;
         Map.Data.Loans.Dates.Duration.Value=6;
         Map.Data.Loans.Dates.Duration.Units=7;
-        Map.Data.Loans.Principal.LinkToIndex=8;
-        Map.Data.Loans.Interest.LinkToIndex=9;
-        Map.Data.Loans.Interest.InitValue=10;
+        Map.Data.Loans.Dates.Exit.Value=8;
+        Map.Data.Loans.Dates.Exit.Units=9;
+        Map.Data.Loans.Principal.LinkToIndex=10;
+        Map.Data.Loans.Interest.LinkToIndex=11;
+        Map.Data.Loans.Interest.InitValue=12;
+        Map.Data.Loans.Report=13;
     end
     %% Fetch values
     RowId=InitRowId;
@@ -47,19 +50,28 @@ if true
             %% Map.Data.Loans.Dates.Duration.Units=7;
             CurLoan.Dates.Duration.Units=...
                 XlsData{RowId,Map.Data.Loans.Dates.Duration.Units};
-            %% Map.Data.Loans.Principal.LinkToIndex=8;
+            %% Map.Data.Loans.Dates.Exit.Value=8;
+            CurLoan.Dates.Exit.Val=...
+                XlsData{RowId,Map.Data.Loans.Dates.Exit.Value};
+            %% Map.Data.Loans.Dates.Exit.Units=9;
+            CurLoan.Dates.Exit.Units=...
+                XlsData{RowId,Map.Data.Loans.Dates.Exit.Units};
+            %% Map.Data.Loans.Principal.LinkToIndex=10;
             CurLoan.PrincipalLinkedToIndex=...
                 strcmpi(...
                 XlsData{RowId,Map.Data.Loans.Principal.LinkToIndex} ...
                 ,'ON');
-            %% Map.Data.Loans.Interest.LinkToIndex=9;
+            %% Map.Data.Loans.Interest.LinkToIndex=11;
             CurLoan.Interest.LinkedToIndex=...
                 strcmpi(...
                 XlsData{RowId,Map.Data.Loans.Interest.LinkToIndex} ...
                 ,'ON');
-            %% Map.Data.Loans.Interest.InitValue=10;
+            %% Map.Data.Loans.Interest.InitValue=12;
             CurLoan.Interest.InitVal=...
                 XlsData{RowId,Map.Data.Loans.Interest.InitValue};
+            %% Map.Data.Loans.Report=13;
+            CurLoan.Report=...
+                XlsData{RowId,Map.Data.Loans.Report};
             %% Assign new loan
             Db.Data.Loans{end+1}=CurLoan;
         end
