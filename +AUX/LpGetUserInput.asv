@@ -1,0 +1,28 @@
+function [Db] = LpGetUserInput()
+%% Description
+%% Body
+if true
+    %% Select file
+    DialogTitle='Select user input XLS file';
+    [InputXlsName,InputXlsPath,FilterIndex] = uigetfile('*.xlsx',DialogTitle);
+    InputXlsFullPath=fullfile(InputXlsPath,InputXlsName);
+    %% Fetch data
+    if true
+        %% DbElelements
+        DbElelements={'Incomes','Expenses','Saving','Assets','Loans'};
+        for DbElId=1:numel(DbElelements)
+            [~,~,XlsData]=xlsread(InputXlsFullPath,DbElelements{DbElId},'','basic');
+            Db.Data.(DbElelements{DbElId})=...
+                eval([ ...
+                'Db.Data.' DbElelements{DbElId} '='...
+                'AUX.LpProcess' DbElelements{DbElId} ...
+                'XlsData(IncomesXlsData)' ...
+                ]);
+        end
+        %% Incomes
+        
+        Db.Data.Incomes=AUX.LpProcessIncomesXlsData(IncomesXlsData);   
+    end
+end
+end
+
