@@ -27,6 +27,14 @@ if true
     OldInterest=Position.Market.CurInterest;
     Position.Market.CurInterest=OldInterest*IndexChangeRate; %[precent]
     Position.Market.LastIndexPrecentChange=(IndexChangeRate-1)*100; %[precent]
+    try
+        Position.Market.IndexHistory=...
+            [Position.Market.IndexHistory ...
+            Position.Market.CurIndex];
+    catch
+        Position.Market.IndexHistory=...
+            Position.Market.CurIndex;
+    end
     %% Holdings
     if true
         %% Cash

@@ -83,27 +83,17 @@ if strcmpi(LoanCfg.Payback.Type,'Shpitzer')
             +1 ...
             ;
         if strcmpi(LoanCfg.LoanType,'FixedRate-Shpitzer')
-            %% CurPayment
-            R=MonthlyInterest/100;
-            CurPayment= ...
-                CurPrincipal*R/ ...
-                (1-1/((1+R)^LoanDuration));
-            %% InterestPayment
-            InterestPayment=CurPrincipal*R;
-            %% PrincipalPayment
-            PrincipalPayment=CurPayment-InterestPayment;
-        elseif strcmpi(LoanCfg.LoanType,'Balloon')
-            YearlyInterest=CurPrincipal*CurInterest/100;
-            InterestPayment=YearlyInterest/12;
-            PrincipalPayment=0;            
-            MonthsInLoan=...
-                Position.CurDate.Val...
-                -Position.Duties.ActiveLoans.(LoanFieldName).EnterDate ...
-                +1;
-            if MonthsInLoan==AUX.LpConvertTimeToMonths(LoanCfg.Dates.Duration)
-                PrincipalPayment=LoanCfg.Amount;
-            end
-            CurPayment=InterestPayment+PrincipalPayment;
+        %% CurPayment        
+        R=MonthlyInterest/100;
+        CurPayment= ...
+            CurPrincipal*R/ ...
+            (1-1/((1+R)^LoanDuration));
+        %% InterestPayment
+        InterestPayment=CurPrincipal*R;
+        %% PrincipalPayment
+        PrincipalPayment=CurPayment-InterestPayment;
+        elseif strcmpi(LoanCfg.LoanType,'FixedRate-Shpitzer')
+            
         end
     end
 else

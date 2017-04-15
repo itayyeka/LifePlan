@@ -16,7 +16,7 @@ if ~exist('LoanCfg','var')
 end
 %% Body
 if true
-    %% Cash
+    %% Cash    
     Contributors.Income=...
         Contributors.Income ...
         + LoanCfg.Amount;
@@ -29,11 +29,8 @@ if true
         Contributors.Duties.ActiveLoans.(LoanFieldName).Principal= ...
             LoanCfg.Amount;
         Contributors.Duties.ActiveLoans.(LoanFieldName).LastInterest=...
-            LoanCfg.Interest.InitVal;
-        Contributors.Duties.ActiveLoans.(LoanFieldName).LastUpdate=...
-            Position.CurDate.Val;
-        Contributors.Duties.ActiveLoans.(LoanFieldName).EnterDate=...
-            Position.CurDate.Val;
+        LoanCfg.Interest.InitVal;
+    Contributors.Duties.ActiveLoans.(LoanFieldName).LastUpdate=
     else
         error(['You have two loans with similar name :"' LoanCfg.DscStr '"']);
     end
