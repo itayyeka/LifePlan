@@ -25,7 +25,9 @@ if true
     CurDate=Position.CurDate.Val;
     StartDate=AUX.LpConvertTimeToMonths(SavingCfg.Dates.Start);
     MonthsPassed=CurDate-StartDate;
-    CurWorth=Position.Holdings.ActiveSavings.(SavingFieldName).Worth;    
+    CurWorth=Position.Holdings.ActiveSavings.(SavingFieldName).Worth+...
+        Position.Holdings.ActiveSavings.(SavingFieldName).Cfg.StandingOrder.Val...
+        *not(mod(MonthsPassed,Position.Holdings.ActiveSavings.(SavingFieldName).Cfg.StandingOrder.Frequency));    
     if mod(MonthsPassed,SavingCfg.ManagementFee.Frequency)==0
         PayManagmentFee=1;
     end

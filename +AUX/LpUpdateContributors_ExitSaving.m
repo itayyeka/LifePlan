@@ -15,11 +15,12 @@ if ~exist('SavingCfg','var')
     SavingCfg = AUX.LpDefaultSavingCfgConstructor;
 end
 %% Aux
-CurValue=AUX.LpCalculateSavingValue(Position,SavingCfg);
+SavingFieldName=AUX.LpConvertStringToValidFieldName(SavingCfg.DscStr);
+CurValue=Position.Holdings.ActiveSavings.(SavingFieldName).Worth;
 %% Body
 if true
     %% Cash
-    TmpTax=SavingCfg.Tax.Exit.CalcFuncHndl(SavingCfg,Position);    
+    TmpTax=SavingCfg.Tax.Sell.CalcFuncHndl(SavingCfg,Position);    
     Contributors.Income=Contributors.Income+CurValue;
     Contributors.Expense=Contributors.Expense+TmpTax;
     %% Savings    

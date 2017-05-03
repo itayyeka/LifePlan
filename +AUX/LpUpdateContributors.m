@@ -64,7 +64,7 @@ elseif strcmpi(DscStr,'Saving')
     end
     %% Dynamics
     if ((Month>StartDate) && (Month<EndDate))
-        SavingFieldName=AUX.LpConvertStringToValidFieldName(Data.DscStr);        
+        SavingFieldName=AUX.LpConvertStringToValidFieldName(Data.DscStr);
         if ~isfield(Position.Holdings.ActiveSavings,SavingFieldName)
             Contributors.Holdings.Savings=...
                 Contributors.Holdings.Savings + ...
@@ -79,7 +79,7 @@ elseif strcmpi(DscStr,'Saving')
                 ActiveSavingCfg;
         end
         Contributors=AUX.LpUpdateContributors_SavingDynamics(...
-            Position,Contributors,Data);
+            Position,Contributors,Data);        
     end
 elseif strcmpi(DscStr,'Loan')
     %% Check if Loan is "Alive"
@@ -114,7 +114,7 @@ elseif strcmpi(DscStr,'Loan')
             [Contributors,Position]= ...
                 AUX.LpUpdateContributors_LoanDynamics( ...
                 Position,Contributors,Data);
-        end        
+        end
     end
 elseif strcmpi(DscStr,'Expense')
     %% Check for special events

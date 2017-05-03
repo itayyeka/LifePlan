@@ -6,7 +6,7 @@ if ~exist('Input','var')
     clc;
     Scenario=1;
     Input.XLS.Path=fileparts(mfilename('fullpath'));
-    Input.XLS.Name=['LpUserInput' num2str(Scenario) '.xlsm'];
+    Input.XLS.Name=['LpUserInput_2017May2nd.xlsm'];
 end
 if isfield(Input,'XLS')
     Input.XLS.FullPath=fullfile(Input.XLS.Path,Input.XLS.Name);
@@ -19,4 +19,3 @@ EndDate.Units='Months';
 %% plot
 AUX.LpPlot(Db,Position,Contributors);
 end
-
